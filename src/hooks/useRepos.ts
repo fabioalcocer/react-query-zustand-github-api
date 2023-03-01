@@ -5,7 +5,12 @@ import { Repository } from './types'
 async function fetchRepos(ctx: QueryFunctionContext) {
   const userName = ctx.queryKey[1]
   const { data } = await api.get<Repository[]>(
-    `/users/${userName}/repos?per_page=120`
+    `/users/${userName}/repos?per_page=120`,
+    {
+      headers: {
+        Authorization: 'Bearer ' + import.meta.env.VITE_GITHUB_TOKEN,
+      },
+    }
   )
   return data
 }
