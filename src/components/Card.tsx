@@ -23,9 +23,12 @@ function Card({ repository, isFavorite }: CardProps) {
 
   return (
     <div>
-      <h1> {repository.name}</h1>
+      <a href={repository.html_url}>
+        <h2>{repository.name}</h2>
+      </a>
+      <p>{repository.created_at} </p>
       <button onClick={toggleFavorite}>
-        {isFavorite ? '💔' : '❤️'}
+        {isFavorite ? 'Dislike' : 'Like'}
       </button>
     </div>
   )

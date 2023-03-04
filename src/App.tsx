@@ -24,11 +24,25 @@ function App() {
 
   return (
     <div className='App'>
+      <h1>Github Profile Search</h1>
       <div>
         <form onSubmit={handleSubmit}>
-          <label htmlFor='username'>Username</label>
-          <input id='username' type='text' name='username' />
-          <button type='submit'>Buscar</button>
+          <input
+            id='username'
+            type='text'
+            name='username'
+            placeholder='@Username...'
+          />
+          <button type='submit' className='btn'>
+            <span>Search</span>
+            <div id='container-stars'>
+              <div id='stars'></div>
+            </div>
+            <div id='glow'>
+              <div className='circle'></div>
+              <div className='circle'></div>
+            </div>
+          </button>
         </form>
       </div>
       {data?.map((repository) => (
