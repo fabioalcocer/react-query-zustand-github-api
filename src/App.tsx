@@ -2,6 +2,7 @@ import Card from './components/Card'
 import Loader from './components/Loader'
 import { useFetchRepositories } from './hooks/useRepos'
 import { useFavoriteReposStore } from './store/favoriteList'
+import { useUsernameSearch } from './store/userName'
 import { FormEvent, useState } from 'react'
 
 type NameForm = HTMLFormElement & {
@@ -9,10 +10,9 @@ type NameForm = HTMLFormElement & {
 }
 
 function App() {
-  const [username, setUsername] = useState('octocat')
-
-  const { data, isLoading } = useFetchRepositories(username)
+  const { username, setUsername } = useUsernameSearch()
   const { favoriteReposIds } = useFavoriteReposStore()
+  const { data, isLoading } = useFetchRepositories(username)
 
   if (isLoading) return <Loader />
 
@@ -33,14 +33,10 @@ function App() {
             name='username'
             placeholder='@Username...'
           />
-          <button type='submit' className='btn'>
+          <button type='submit' className='input-btn'>
             <span>Search</span>
             <div id='container-stars'>
               <div id='stars'></div>
-            </div>
-            <div id='glow'>
-              <div className='circle'></div>
-              <div className='circle'></div>
             </div>
           </button>
         </form>
