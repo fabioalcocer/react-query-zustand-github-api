@@ -13,19 +13,33 @@
   -webkit-text-size-adjust: 100%;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   min-height: 100vh;
-  display: grid;
-  place-content: center;
+  display: flex;
+}
+
+#root {
+  width: 100%;
 }
 
 .App {
+  width: 100%;
+  margin-top: 10rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 h1 {
   font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
   background: #7d0ee4;
   background: linear-gradient(to right, #7d0ee4 0%, #fe53bb 100%);
   -webkit-background-clip: text;
@@ -42,9 +56,15 @@ a:hover {
 }
 
 h2 {
+  width: 90%;
+  display: inline-block;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 700;
   font-size: 1.6rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 form {
@@ -74,6 +94,40 @@ input::-webkit-input-placeholder {
 
 input:active {
   box-shadow: 2px 2px 15px #8707ff inset;
+}
+
+section {
+  margin: 3rem 0;
+  max-width: 1300px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card {
+  width: 400px;
+  display: grid;
+  gap: 0.4rem;
+  padding: 2rem;
+  background-color: transparent;
+  border: 2px solid #8f51ea;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card:hover {
+  background-color: #37373793;
+}
+
+.card button {
+  max-width: max-content;
+  padding: 0.6rem 2rem;
+  background-color: #c23861;
+  margin-top: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
 
 .btn {

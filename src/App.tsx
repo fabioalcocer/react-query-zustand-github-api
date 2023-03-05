@@ -45,13 +45,15 @@ function App() {
           </button>
         </form>
       </div>
-      {data?.map((repository) => (
-        <Card
-          key={repository.id}
-          repository={repository}
-          isFavorite={favoriteReposIds.includes(repository.id)}
-        />
-      ))}
+      <section>
+        {data?.map((repository) => (
+          <Card
+            key={repository.id}
+            repository={repository}
+            isFavorite={favoriteReposIds.includes(repository.id)}
+          />
+        ))}
+      </section>
     </div>
   )
 }

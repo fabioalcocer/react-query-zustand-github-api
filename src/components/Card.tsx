@@ -21,14 +21,18 @@ function Card({ repository, isFavorite }: CardProps) {
     addFavoriteRepo(repository.id)
   }
 
+  const formatDate = (date: string) => {
+    return date.slice(0, 10)
+  }
+
   return (
-    <div>
+    <div className='card'>
       <a href={repository.html_url}>
         <h2>{repository.name}</h2>
       </a>
-      <p>{repository.created_at} </p>
+      <p>Created At: {formatDate(repository.created_at)}</p>
       <button onClick={toggleFavorite}>
-        {isFavorite ? 'Dislike' : 'Like'}
+        {isFavorite ? 'Remove' : 'Add favorites'}
       </button>
     </div>
   )
